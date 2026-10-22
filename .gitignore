@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.vite/
+*.y4m
+.DS_Store
+go/vindecode
+.env
+.env.local

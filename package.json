@@ -1,0 +1,30 @@
+{
+  "name": "vin-toolkit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "VIN validation, constrained OCR repair, multi-frame camera scanning and NHTSA vPIC decoding",
+  "license": "MIT",
+  "packageManager": "pnpm@10.18.0",
+  "scripts": {
+    "build": "pnpm -r typecheck && pnpm --filter demo build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "vitest run",
+    "dev": "pnpm --filter demo dev",
+    "vin": "tsx cli/vin.ts"
+  },
+  "dependencies": {
+    "vin-core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "24.9.1",
+    "tsx": "4.20.6",
+    "typescript": "7.0.2",
+    "vitest": "4.1.12"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "vin-scanner",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts",
+    "./web": "./src/web.ts",
+    "./expo": "./src/expo.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "vin-core": "workspace:*",
+    "@zxing/browser": "0.2.0",
+    "@zxing/library": "0.22.0"
+  }
+}

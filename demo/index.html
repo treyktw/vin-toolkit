@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VIN Toolkit Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" />
+  </head>
+  <body>
+    <header>
+      <h1>VIN Toolkit</h1>
+      <p>Validate, repair, scan and decode a vehicle identification number. Decoding uses the public NHTSA vPIC API from your browser.</p>
+    </header>
+
+    <main>
+      <section class="panel" aria-labelledby="manual-heading">
+        <h2 id="manual-heading">Type or paste</h2>
+        <label for="vin-input">VIN or label text</label>
+        <input id="vin-input" autocomplete="off" spellcheck="false" placeholder="VIN: 1HGCM82633AOO4352" />
+        <div class="samples">
+          Try:
+          <button type="button" data-sample="1HGCM82633A004352">clean</button>
+          <button type="button" data-sample="1HGCM82633AOO4352">O for 0</button>
+          <button type="button" data-sample="1HGCM8Z633A004352">bad check digit</button>
+          <button type="button" data-sample="1ZZZZOQZ8NZ00000L / 1ZZZZ00Z6PZ000002">ambiguous</button>
+        </div>
+        <div id="analysis" class="analysis" aria-live="polite"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="scan-heading">
+        <h2 id="scan-heading">Scan a barcode</h2>
+        <p class="hint">Point the camera at the Code 39 barcode on a door jamb or windshield sticker. A VIN is accepted after 2 matching frames (3 when it has no check digit).</p>
+        <div class="video-frame">
+          <video id="camera" muted playsinline></video>
+          <div id="scan-status" class="scan-status">Camera off</div>
+        </div>
+        <div class="row">
+          <button id="scan-start" type="button">Start camera</button>
+          <button id="scan-stop" type="button" disabled>Stop</button>
+          <span id="engine" class="engine"></span>
+        </div>
+      </section>
+
+      <section class="panel wide" aria-labelledby="decode-heading">
+        <h2 id="decode-heading">Decoded (NHTSA vPIC)</h2>
+        <div id="decode" class="decode"><p class="muted">Enter or scan a valid VIN.</p></div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
